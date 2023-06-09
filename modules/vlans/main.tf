@@ -23,8 +23,8 @@ resource "ibm_network_gateway_vlan_association" "gateway_vlan_association_dal_pr
 
 
 
-resource "ibm_network_vlan" "segment_100" {
-  name       = "${var.project}-segment-100"
+resource "ibm_network_vlan" "segment_221" {
+  name       = "${var.project}-segment-221"
   datacenter = var.datacenter
   type       = "PRIVATE"
   router_hostname = "bcr01a.${var.datacenter}"
@@ -33,24 +33,24 @@ resource "ibm_network_vlan" "segment_100" {
 }
 
 
-resource "ibm_network_gateway_vlan_association" "gateway_vlan_association_100" {
+resource "ibm_network_gateway_vlan_association" "gateway_vlan_association_221" {
   gateway_id      = var.gateway_id 
-  network_vlan_id = ibm_network_vlan.segment_100.id
+  network_vlan_id = ibm_network_vlan.segment_221.id
   bypass          = false
 }
 
 
-resource "ibm_network_vlan" "segment_101" {
-  name       = "${var.project}-segment-101"
+resource "ibm_network_vlan" "segment_222" {
+  name       = "${var.project}-segment-222"
   datacenter = var.datacenter
   type       = "PRIVATE"
   router_hostname = "bcr01a.${var.datacenter}"
   tags = var.tags
 }
 
-resource "ibm_network_gateway_vlan_association" "gateway_vlan_association_101" {
+resource "ibm_network_gateway_vlan_association" "gateway_vlan_association_222" {
   gateway_id      = var.gateway_id
-  network_vlan_id = ibm_network_vlan.segment_101.id
+  network_vlan_id = ibm_network_vlan.segment_222.id
   bypass          = false
 }
 
